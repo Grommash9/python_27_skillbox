@@ -27,6 +27,7 @@ def logging(func: Callable) -> Callable:
     def wrapped_func(*args, **kwargs) -> Any:
         try:
             func_to_call_name = func.__name__
+            print(f'Имя текущей функции: {func_to_call_name} Документация текущей функции: {func.__doc__}')
             func_to_call = func(*args, **kwargs)
             return func_to_call
         except:
@@ -37,6 +38,11 @@ def logging(func: Callable) -> Callable:
 
 @logging
 def valera_go(number: int) -> float:
+    """
+    Функция валераГоу делит 10 на передаваемое число
+
+    number - целое число которое будет делителем
+    """
     if not isinstance(number, int):
         raise ValueError('Функция валераГоу предназначена только для целых чисел')
     return 10 / number
@@ -44,6 +50,11 @@ def valera_go(number: int) -> float:
 
 @logging
 def grisha_go(number: int) -> float:
+    """
+    Функция гришаГоу делит 10 на передаваемое число и прибавляет 25
+
+    number - целое число которое будет делителем
+    """
     if not isinstance(number, int):
         raise ValueError('Функция валераГоу предназначена только для целых чисел')
     return 10 / number + 25
