@@ -42,8 +42,15 @@ def valera_go(number: int) -> float:
     return 10 / number
 
 
+@logging
+def grisha_go(number: int) -> float:
+    if not isinstance(number, int):
+        raise ValueError('Функция валераГоу предназначена только для целых чисел')
+    return 10 / number + 25
+
+
+
 numbers_list = [1, 0, 2, 3, 4, 2.3, 0, 6, 2, 9, 0]
 for numbers in numbers_list:
     print(valera_go(numbers))
-
-print(valera_go(2.3))
+    print(grisha_go(numbers))
